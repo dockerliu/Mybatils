@@ -9,7 +9,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import java.io.IOException;
 import java.io.InputStream;
 
-//sqlSessionFactory --> sqlSession
+//sqlSessionFactory --> sqlSession(数据库连接通用类)
 public class MybatisUtils {
 
     private static SqlSessionFactory sqlSessionFactory;

@@ -1,6 +1,6 @@
 package com.liu.pojo;
 
-//实体实
+//数据表实体实
 public class SysAdmins {
     private int AdminId;
     private String AdminName;
