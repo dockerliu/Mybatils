@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace=绑定一个对应的DAP/Mapper的接口-->
+<mapper namespace="com.liu.dao.SysAdminsMapper">
+    <!--    select查询语句，id对应方法名称-->
+    <!-- 获取全部用户-->
+    <select id="getSysAdminList" resultType="Admin">
+        select *
+        from libirarymanager.SysAdmins;
+    </select>
+
+    <!-- 根据ID查询用户-->
+    <select id="getSysAdminById" parameterType="int" resultType="com.liu.pojo.SysAdmins">
+        select *
+        from libirarymanager.SysAdmins
+        where AdminId = #{AdminId};
+    </select>
+
+    <!--    根据名字模糊查询-->
+    <select id="getSysAdminLikeName" parameterType="String" resultType="com.liu.pojo.SysAdmins">
+        select *
+        from libirarymanager.SysAdmins
+        where adminName like #{name};
+    </select>
+
+    <!-- Insert一个用户-->
+    <insert id="addUser" parameterType="com.liu.pojo.SysAdmins">
+        insert into libirarymanager.SysAdmins(adminId, adminName, loginPwd, statusId, roleId)
+        values (#{adminId}, #{adminName}, #{loginPwd}, #{statusId}, #{roleId});
+
+    </insert>
+
+
+    <!-- 修改用户-->
+    <update id="updateUser" parameterType="com.liu.pojo.SysAdmins">
+        update libirarymanager.SysAdmins
+        set adminName=#{adminName},
+            loginPwd=#{loginPwd},
+            statusId=#{statusId},
+            roleId=#{roleId}
+        where adminId = #{adminId};
+    </update>
+
+    <!--    删除用户-->
+    <delete id="deleteUser" parameterType="int">
+        delete
+        from libirarymanager.SysAdmins
+        where AdminId = #{AdminId};
+    </delete>
+</mapper>
