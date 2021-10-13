@@ -4,6 +4,7 @@ package com.liu.dao;
 import com.liu.pojo.SysAdmins;
 import com.liu.utils.MybatisUtils;
 import org.apache.ibatis.session.SqlSession;
+import org.apache.log4j.Logger;
 import org.junit.Test;
 
 
@@ -11,6 +12,10 @@ import java.util.List;
 
 
 public class SysAdminDaoTest {
+
+    //    日志对象,加载参数为当前类的class
+    static Logger logger = Logger.getLogger(SysAdminDaoTest.class);
+
     //查询所有用户
     @Test
     public void test() {
@@ -28,6 +33,15 @@ public class SysAdminDaoTest {
         sqlSession.close();
     }
 
+    //测试log4j用例
+    @Test
+    public void testLog4j() {
+        logger.info("info:进入了testLog4j");
+        logger.debug("debug:进入了testLog4j");
+        logger.error("error:进入了testLog4j");
+
+    }
+
     //根据ID查询指定用户
     @Test
     public void getAdminById() {
@@ -41,11 +55,11 @@ public class SysAdminDaoTest {
 
     //根据名字模糊查询
     @Test
-    public  void getSysAdminLikeName(){
+    public void getSysAdminLikeName() {
         SqlSession sqlSession = MybatisUtils.getSqlSession();
         SysAdminsMapper mapper = sqlSession.getMapper(SysAdminsMapper.class);
         List<SysAdmins> admins = mapper.getSysAdminLikeName("%%");
-        for (SysAdmins admin: admins){
+        for (SysAdmins admin : admins) {
             System.out.println(admin);
         }
         sqlSession.close();
@@ -67,7 +81,6 @@ public class SysAdminDaoTest {
         sqlSession.close();
 
     }
-
 
 
     //updateUser
