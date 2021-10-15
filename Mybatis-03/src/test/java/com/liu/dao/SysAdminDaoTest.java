@@ -5,9 +5,7 @@ import com.liu.pojo.SysAdmins;
 import com.liu.utils.MybatisUtils;
 import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
-import org.apache.log4j.Logger;
 import org.junit.Test;
-
 
 import java.util.HashMap;
 import java.util.List;
@@ -15,8 +13,6 @@ import java.util.List;
 
 public class SysAdminDaoTest {
 
-    //    日志对象,加载参数为当前类的class
-    static Logger logger = Logger.getLogger(SysAdminDaoTest.class);
 
     //查询所有用户
     @Test
@@ -35,14 +31,7 @@ public class SysAdminDaoTest {
         sqlSession.close();
     }
 
-    //测试log4j用例
-    @Test
-    public void testLog4j() {
-        logger.info("info:进入了testLog4j");
-        logger.debug("debug:进入了testLog4j");
-        logger.error("error:进入了testLog4j");
 
-    }
 
     //根据ID查询指定用户
     @Test
@@ -73,12 +62,11 @@ public class SysAdminDaoTest {
     public void addUser() {
         SqlSession sqlSession = MybatisUtils.getSqlSession();
         SysAdminsMapper adminMapper = sqlSession.getMapper(SysAdminsMapper.class);
-        int res = adminMapper.addUser(new SysAdmins(1003, "Andy Liu", "1234", 1, 1));
+        int res = adminMapper.addUser(new SysAdmins(1005, "Andy Liu", "1234", 1, 1));
         if (res > 0) {
             System.out.println("插入成功！");
         }
-        //**提交事务
-        sqlSession.commit();
+
 
         sqlSession.close();
 
@@ -94,7 +82,6 @@ public class SysAdminDaoTest {
         if (res > 0) {
             System.out.println("修改成功！");
         }
-        sqlSession.commit();
         sqlSession.close();
 
     }
@@ -106,7 +93,6 @@ public class SysAdminDaoTest {
         SysAdminsMapper mapper = sqlSession.getMapper(SysAdminsMapper.class);
         int res = mapper.deleteUser(1003);
         if (res > 0) System.out.println("删除用户成功！");
-        sqlSession.commit();
         sqlSession.close();
     }
 

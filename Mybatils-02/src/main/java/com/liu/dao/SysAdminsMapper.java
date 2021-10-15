@@ -25,4 +25,10 @@ public interface SysAdminsMapper {
 
     //删除用户
     int deleteUser(int adminId);
+
+    /*分页查询*/
+    List<SysAdmins> getAdminByLimit(Map<String,Integer> map);
+
+//    通过RowBounds分页查询
+    List<SysAdmins> getAdminByRowBounds();
 }

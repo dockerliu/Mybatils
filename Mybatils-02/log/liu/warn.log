@@ -1,0 +1,2 @@
+2021-10-13 17:22:16 下午 [Thread: main][ Class:com.liu.dao.SysAdminDaoTest >> Method: com.liu.dao.SysAdminDaoTest.testLog4j(SysAdminDaoTest.java:41) ]
+ERROR:error:进入了testLog4j

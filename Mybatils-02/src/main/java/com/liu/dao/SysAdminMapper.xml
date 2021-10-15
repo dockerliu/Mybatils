@@ -49,4 +49,22 @@
         from libirarymanager.SysAdmins
         where AdminId = #{AdminId};
     </delete>
+
+
+<!--    结果集映射-->
+    <resultMap id="AdminMap" type="Admin">
+        <id property="adminId" column="adminId" />
+        <result property="adminName" column="adminName" />
+    </resultMap>
+<!--    查询分页-->
+    <select id="getAdminByLimit" parameterType="map" resultMap="AdminMap">
+        select * from  libirarymanager.SysAdmins limit #{startPage},#{pageSize}
+
+    </select>
+
+    <!--    查询分页-->
+    <select id="getAdminByRowBounds"  resultMap="AdminMap">
+        select * from  libirarymanager.SysAdmins
+
+    </select>
 </mapper>
