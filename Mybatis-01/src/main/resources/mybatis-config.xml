@@ -21,6 +21,6 @@
 
 <!--    每一个Mapper.XML都需要在Mybatils核心配置文件中注册  -->
     <mappers>
-        <mapper resource="com/liu/dao/SysAdminMapper.xml"/>
+        <mapper resource="com/liu/com.liu.dao/SysAdminMapper.xml"/>
     </mappers>
 </configuration>

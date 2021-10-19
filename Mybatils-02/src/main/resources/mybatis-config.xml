@@ -17,9 +17,9 @@
     
 <!--    别名配置-->
     <typeAliases>
-<!--  别名配置方式一：      <typeAlias type="com.liu.pojo.SysAdmins" alias="SysAdmins"></typeAlias>-->
+<!--  别名配置方式一：      <typeAlias type="com.liu.com.liu.pojo.SysAdmins" alias="SysAdmins"></typeAlias>-->
 <!-- 别名配置 方法二：批量指定 -->
-        <package name="com.liu.pojo" />
+        <package name="com.liu.com.liu.pojo" />
     </typeAliases>
 
     <environments default="development">
@@ -39,6 +39,6 @@
 
     <!--每一个Mapper.XML都需要在Mybatils核心配置文件中注册  -->
     <mappers>
-        <mapper resource="com/liu/dao/SysAdminMapper.xml"/>
+        <mapper resource="com/liu/com.liu.dao/SysAdminMapper.xml"/>
     </mappers>
 </configuration>

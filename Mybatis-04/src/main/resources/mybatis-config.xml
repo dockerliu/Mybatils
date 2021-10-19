@@ -18,7 +18,7 @@
     <typeAliases>
 <!--  别名配置方式一：      <typeAlias type="com.liu.com.liu.pojo.SysAdmins" alias="SysAdmins"></typeAlias>-->
 <!-- 别名配置 方法二：批量指定 -->
-        <package name="com.liu.com.liu.pojo" />
+        <package name="com.liu.pojo" />
     </typeAliases>
 
     <environments default="development">
@@ -37,5 +37,9 @@
     </environments>
 
 <!--绑定接口-->
-
+    <mappers>
+        <mapper class="com.liu.dao.SysAdminsMapper"/>
+        <mapper class="com.liu.dao.PublishersMapper"/>
+<!--        <mapper resource="com/liu/com.liu.dao/*.xml" />-->
+    </mappers>
 </configuration>

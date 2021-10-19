@@ -134,7 +134,7 @@ public class SysAdminDaoTest {
         RowBounds rowBounds = new RowBounds(0, 2);
 
 //        通过Java代码
-        List<SysAdmins> SysAdminsList = sqlSession.selectList("com.liu.dao.SysAdminsMapper.getAdminByRowBounds",null,rowBounds);
+        List<SysAdmins> SysAdminsList = sqlSession.selectList("com.liu.com.liu.dao.SysAdminsMapper.getAdminByRowBounds",null,rowBounds);
         for (SysAdmins admins : SysAdminsList) {
             System.out.println(admins);
         }
